@@ -38,4 +38,18 @@ npm run build
 npm run deploy:cloudflare
 ```
 
+## 部署到 Vercel
+
+仓库包含独立的 Vercel 静态构建，避免把 Cloudflare Worker 产物误当成静态站点：
+
+```bash
+npm run build:vercel
+```
+
+Vercel 会根据 `vercel.json` 使用该命令，并发布 `dist-vercel`。Sites 与
+Cloudflare 继续使用原有的 `npm run build`，三端共享同一套漫画组件、样式和资源。
+
+三个平台都可以设置 `SITE_ORIGIN` 来生成对应的分享链接。未设置时暂时使用当前
+Cloudflare 地址；确定正式域名后只需更新各平台的这个值。
+
 项目基于 React 19、vinext、Vite 和 Cloudflare Workers 构建。

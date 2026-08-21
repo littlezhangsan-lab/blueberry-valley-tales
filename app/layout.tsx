@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteOrigin =
+  process.env.SITE_ORIGIN ??
+  "https://blueberry-valley-tales.littlezhangsan.workers.dev";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blueberry-valley-tales.littlezhangsan.workers.dev"),
+  metadataBase: new URL(siteOrigin),
   title: "蓝莓谷异闻录｜第一季",
   description: "十二则发生在蓝莓谷的东方民俗异闻。全十二话，完整在线阅读。",
   icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
